@@ -20,3 +20,14 @@ L'image finale de mon application est disponible ici : `majouba/myservice:4`
 ### 3. Exposition du service
 `kubectl expose deployment myservice --type=NodePort --port=8080`
 `minikube service myservice --url`
+
+### 4. Utilisation des fichiers YAML
+Application de la configuration via les fichiers fournis :
+`kubectl apply -f myservice-deployment.yml`
+`kubectl apply -f myservice-loadbalancing-service.yml`
+
+### 5. Configuration de l'Ingress
+Activation de l'Ingress et application des règles de routage :
+`minikube addons enable ingress`
+`kubectl apply -f ingress.yml`
+Accès configuré via le fichier hosts sur `http://myservice.info/`
